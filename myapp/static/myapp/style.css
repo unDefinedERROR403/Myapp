@@ -1,0 +1,45 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    color: blue;
+    font-size: xxx-large;
+    font-style: oblique;
+    position: center;
+    font-family: "Roboto Thin";
+}
+
+h2 {
+    font-size: xx-large;
+    font-family: Roboto;
+}
+
+li {
+    font-size: x-large;
+    font-family: Roboto;
+}
+
+ul {
+    display: flex;
+}
+
+p {
+    font-family: Arial;
+    font-style: italic;
+    background-color: chartreuse;
+    text-align: center;
+    font-size: large;
+}
+
+h3 {
+    font-size: x-large;
+    font-family: "Times New Roman";
+}
+
+.hb {
+    display: inline;
+    margin: 15px;
+    text-align: center;
+    position: center;
+}
