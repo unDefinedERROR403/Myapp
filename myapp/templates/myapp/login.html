@@ -4,7 +4,7 @@
     <div class="form-group">
         <h3 style="text-align: left;">Login</h3>
         {% if msg %}
-            <p>{{ msg }}</p>
+            <p1>{{ msg }}</p1>
         {% endif %}
         <form method="POST">
             {% csrf_token %}
@@ -17,6 +17,11 @@
             <input type="password" name="password" id="password" placeholder="Password"/>
             </div>
             <button type="submit" value="submit">Login</button>
+             <div>
+             </br></br></br>
+            <label for="registration">New User? Register Here</label>
+             <button formaction="{% url 'myapp:register' %}">Register</button>
+            </div>
         </form>
     </div>
 {% endblock %}

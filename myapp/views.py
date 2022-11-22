@@ -146,9 +146,8 @@ def register(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
             msg1 = 'Registration Successful. Login to continue shopping...'
-            return render(request, "myapp/index.html", {'msg': msg1})
+            return render(request, "myapp/register.html", {'msg': msg1})
         msg1 = 'Unsuccessful registration. Invalid information.'
     form = NewUserForm()
     return render(request, "myapp/register.html", {"register_form": form, 'msg': msg1})

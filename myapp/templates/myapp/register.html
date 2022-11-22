@@ -3,6 +3,9 @@
 {% block body_block %}
     <div class="form-group">
         <h3 style="text-align: left;">Register</h3>
+        {% if msg %}
+            <p1>{{ msg }}</p1>
+        {% endif %}
         <form method="POST">
             {% csrf_token %}
             <div>
@@ -27,8 +30,5 @@
             </div>
             <button type="submit" value="submit">Register</button>
         </form>
-        {% if msg %}
-            <p>{{ msg }}</p>
-        {% endif %}
     </div>
 {% endblock %}

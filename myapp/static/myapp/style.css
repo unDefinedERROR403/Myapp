@@ -43,3 +43,32 @@ h3 {
     text-align: center;
     position: center;
 }
+
+li1 {
+    font-size: x-large;
+    font-family: Roboto;
+    float: right;
+    display: inline;
+    margin: 15px;
+    text-align: center;
+    position: center;
+}
+
+p1 {
+    font-family: Arial;
+    font-style: italic;
+    text-align: center;
+    font-size: large;
+    position: fixed;
+    bottom: 0;
+}
+
+p2 {
+    font-family: Arial;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.button1 {
+    font-size: 24px;
+}

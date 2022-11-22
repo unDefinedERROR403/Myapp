@@ -13,5 +13,10 @@
     {% else %}
         <strong>There are no available products!</strong>
     {% endif %}
-    <p><a href="{% url 'myapp:placeOrder' %}">Place Order</a></p>
+    <p2>
+    <form action="{% url 'myapp:placeOrder' %}">
+         <button type="submit" class="button1">Place Order</button>
+    </form>
+    </p2>
+    <!--<p1><a href="{% url 'myapp:placeOrder' %}">Place Order</a></p1>-->
 {% endblock %}

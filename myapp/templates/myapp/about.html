@@ -1,15 +1,8 @@
 {% extends 'myapp/base.html' %}
 {% block body_block %}
+     {% if no_of_times_visited %}
+    {% endif %}
     <h2>About Page</h2>
     <h3>This is an Online Store App</h3>
-
-    {% if no_of_times_visited %}
-        <p>Number of times this page visited - {{ no_of_times_visited }}</p>
-    {% endif %}
-<p>
-    <a a href="{% url 'myapp:index' %}">Index page [URL Namespacing]</a>
-</p>
-<p>
-    <a href="/myapp/">Index page [Hard Coded URL]</a>
-</p>
+    <p1 >Number of times this page visited - {{ no_of_times_visited }}</p1>
 {% endblock %}

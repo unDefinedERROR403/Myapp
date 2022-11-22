@@ -9,28 +9,21 @@
  <div>
  <h1>{% block myhdg %}
         {% if user.is_authenticated %}
-            Hello {{ user.username }}
+            Hello {{ user.first_name }}
+            <li1><a href="{% url 'myapp:logout' %}">Logout</a></li1>
+            <li1><a href="/myapp/about">About this site</a></li1>
+            <li1><a href="{% url 'myapp:myorders' %}">My orders</a></li1>
+            <li1><a href="{% url 'myapp:index' %}">Main page</a></li1>
+            <li1><a href="{% url 'myapp:products' %}">All products</a></li1>
+            <hr/>
         {% else %}
-            Hello Five Guys
+            Hello User
+            <li1><a href="{% url 'myapp:login' %}">Login</a></li1>
+            <li1><a href="{% url 'myapp:register' %}">Register Here</a><br/></li1>
+            <hr/>
         {% endif %}
     {% endblock %}</h1>
  {% block body_block %}*** {% endblock %}
  </div>
- <div><br><br><br><br>
-    <ul>
-         {% block link_block %}
-            <li class="hb"><a href="/myapp/about">About this site</a></li>
-            <li class="hb"><a href="{% url 'myapp:products' %}">All products</a></li>
-            {% if user.is_authenticated %}
-                <li class="hb"><a href="{% url 'myapp:logout' %}">Logout</a></li>
-            {% else %}
-                <li class="hb"><a href="{% url 'myapp:login' %}">Login</a></li>
-            {% endif %}
-            <li class="hb"><a href="{% url 'myapp:index' %}">Main page</a><br/></li>
-             <li class="hb"><a href="{% url 'myapp:register' %}">Registration</a><br/></li>
-        {% endblock %}
-    </ul>
-</div>
- <hr />
  </body>
 </html>
