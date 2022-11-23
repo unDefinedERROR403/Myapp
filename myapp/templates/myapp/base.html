@@ -3,6 +3,9 @@
 <html>
  <head>
      <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <title>Online Store APP - {% block title %}Welcome!{% endblock %}</title>
  </head>
  <body>
@@ -11,6 +14,7 @@
         {% if user.is_authenticated %}
             Hello {{ user.first_name }}
             <li1><a href="{% url 'myapp:logout' %}">Logout</a></li1>
+            <li1><a href="{% url 'myapp:users-profile' %}">My Profile</a></li1>
             <li1><a href="/myapp/about">About this site</a></li1>
             <li1><a href="{% url 'myapp:myorders' %}">My orders</a></li1>
             <li1><a href="{% url 'myapp:index' %}">Main page</a></li1>

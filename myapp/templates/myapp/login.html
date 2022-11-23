@@ -2,11 +2,13 @@
 {% block title %}Login Page{% endblock %}
 {% block body_block %}
     <div class="form-group">
-        <h3 style="text-align: left;">Login</h3>
+    <div class="row justify-content-center">
         {% if msg %}
             <p1>{{ msg }}</p1>
         {% endif %}
         <form method="POST">
+            <h3 style="text-align: center;">Login</h3>
+            </br></br>
             {% csrf_token %}
             <div>
             <label for="username">Username</label>
@@ -17,11 +19,17 @@
             <input type="password" name="password" id="password" placeholder="Password"/>
             </div>
             <button type="submit" value="submit">Login</button>
+            </br></br></br>
+            <div>
+                 <label for="forgot_pass">Forgot Password?</label>
+             <button formaction="{% url 'myapp:password_reset' %}">Forgot Password</button>
+            </div>
+            </br></br>
              <div>
-             </br></br></br>
-            <label for="registration">New User? Register Here</label>
+                 <label for="registration">New User? Register Here</label>
              <button formaction="{% url 'myapp:register' %}">Register</button>
             </div>
         </form>
+    </div>>
     </div>
 {% endblock %}

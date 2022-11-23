@@ -2,6 +2,8 @@ from django.db import models
 import datetime
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.core.validators import MaxValueValidator, MinValueValidator
+from PIL import Image
 
 
 # Create your models here.
@@ -20,7 +22,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    stock = models.PositiveIntegerField(default=100)
+    stock = models.PositiveIntegerField(default=100, validators=[MinValueValidator(0), MaxValueValidator(1000)])
     available = models.BooleanField(default=True)
     description = models.TextField(blank=True)
     interested = models.PositiveIntegerField(default=0)
@@ -74,3 +76,23 @@ class Order(models.Model):
 
     def total_cost(self):
         return self.product.price * self.num_units
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(default='profile_images/profile.png', upload_to='profile_images')
+    bio = models.TextField(null= True)
+
+    def __str__(self):
+        return self.user.username
+
+    # resizing images
+    def save(self, *args, **kwargs):
+        super().save()
+
+        img = Image.open(self.avatar.path)
+
+        if img.height > 100 or img.width > 100:
+            new_img = (100, 100)
+            img.thumbnail(new_img)
+            img.save(self.avatar.path)
