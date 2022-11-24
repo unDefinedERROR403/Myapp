@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+import json
 from django.urls import reverse, reverse_lazy
 from .models import Category, Product, Client, Order, Profile
 from django.shortcuts import get_object_or_404
@@ -149,8 +150,8 @@ def register(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            profile = Profile.objects.create(user=user)
-            profile.save()
+            profiles = Profile.objects.create(user=user)
+            profiles.save()
             user.save()
             msg1 = 'Registration Successful. Login to continue shopping...'
             return render(request, "myapp/register.html", {'msg': msg1})
@@ -190,3 +191,13 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       "Didn't receive the email? " \
                       "Make sure you have entered the correct email."
     success_url = reverse_lazy('myapp:login')
+
+
+def json(request):
+    data1 = list(Category.objects.values())
+    data2 = list(Product.objects.values())
+    data3 = list(Client.objects.values())
+    data4 = list(Order.objects.values())
+    data5 = list(Profile.objects.values())
+    data = data1+data2+data3+data4+data5
+    return JsonResponse(data, safe=False)

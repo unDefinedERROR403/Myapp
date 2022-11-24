@@ -31,7 +31,7 @@ admin.site.register(Product, ProductAdmin)
 
 
 class ClientAdmin(admin.ModelAdmin):
-    fields = ['first_name', 'last_name', 'city', 'interestedin']
+    fields = ['first_name', 'last_name', 'city']
     list_display = ('first_name', 'last_name', 'city', 'interestedin')
 
 

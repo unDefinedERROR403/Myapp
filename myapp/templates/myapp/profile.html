@@ -1,61 +1,72 @@
 {% extends "myapp/base.html" %}
 {% block title %}Profile Page{% endblock title %}
 {% block body_block %}
-    {% if msg %}
-        <p1>{{ msg }}</p1>
-    {% endif %}
-    <div class="row my-3 p-3">
-        <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
-    </div>
-    </br>
-    <div class="form-group">
-        <label class="small mb-1">Change Avatar:</label>
-        {{ profile_form.avatar }}
-    </div>
-    </br>
-    {% if user_form.errors %}
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <div id="form_errors">
-                {% for key, value in user_form.errors.items %}
-                    <strong>{{ value }}</strong>
-                {% endfor %}
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    {% endif %}
-    <div class="form-content">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="small mb-1">Username:</label>
-                        {{ user_form.username }}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3" id="bg3">
+                    <div class="card-header justify-content-center">
+                        {% if msg %}
+                            <p1>{{ msg }}</p1>
+                        {% endif %}
+
+                        {% if user_form.errors %}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <div id="form_errors">
+                                    {% for key, value in user_form.errors.items %}
+                                        <strong>{{ value }}</strong>
+                                    {% endfor %}
+                                </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endif %}
+                        <div class="form-content">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="col-md-5">
+                                        <div class="row my-3 p-3">
+                                            <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label class="small mb-1">Change Avatar:</label>
+                                            <br>
+                                            {{ profile_form.avatar }}
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label>Username:</label>
+                                            {{ user_form.username }}
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label>Email:</label>
+                                            {{ user_form.email }}
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label>First Name:</label>
+                                            {{ user_form.first_name }}
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label>Last Name:</label>
+                                            {{ user_form.last_name }}
+                                        </div>
+                                        <br class="form-group">
+                                        <label >Bio:</label> {{ profile_form.bio }}
+                                    </div>
+                                </div>
+                                <br><br>
+                                <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+                            </form>
+                        </div>
                     </div>
-                    </br>
-                    <div>
-                        <label class="small mb-1">Email:</label>
-                        {{ user_form.email }}
-                    </div>
-                    </br>
-                    <div>
-                        <label class="small mb-1">First Name:</label>
-                        {{ user_form.first_name }}
-                    </div>
-                    </br>
-                    <div>
-                        <label class="small mb-1">Last Name:</label>
-                        {{ user_form.last_name }}
-                    </div>
-                    </br>
-                    <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
                 </div>
             </div>
-            <br><br>
-            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-            {#            <button type="reset" class="btn btn-dark btn-lg">Reset</button>#}
-        </form>
+        </div>
     </div>
 {% endblock body_block %}

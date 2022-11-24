@@ -47,7 +47,7 @@ class Client(User):
     city = models.CharField(max_length=20, default='Windsor')
     province = models.CharField(max_length=2, choices=PROVINCE_CHOICES,
                                 default='ON')
-    interested_in = models.ManyToManyField(Category)
+    interested_in = models.ManyToManyField(Category, blank=True)
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
@@ -80,7 +80,7 @@ class Order(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(default='profile_images/profile.png', upload_to='profile_images')
+    avatar = models.ImageField(default='profile_images/profile.png', upload_to='profile_images/', blank=True)
     bio = models.TextField(null= True)
 
     def __str__(self):

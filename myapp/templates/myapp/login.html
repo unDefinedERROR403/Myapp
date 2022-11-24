@@ -2,34 +2,65 @@
 {% block title %}Login Page{% endblock %}
 {% block body_block %}
     <div class="form-group">
+    <div class="container">
     <div class="row justify-content-center">
+    <div class="col-lg-5">
+    <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3" id="bg1">
+        <div class="card-header justify-content-center">
         {% if msg %}
             <p1>{{ msg }}</p1>
         {% endif %}
+        <div class="card-body">
         <form method="POST">
-            <h3 style="text-align: center;">Login</h3>
-            </br></br>
+            <h3 style="text-align: center; font-size: xxx-large" >Login</h3>
+            <br>
             {% csrf_token %}
-            <div>
-            <label for="username">Username</label>
+
+                <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="form-group">
+                <b><label for="username">Username</label></b>
             <input type="text" name="username" id="username" placeholder="User name"/>
-            </div>
-            <div>
-            <label for="pass1">Password</label>
+                        </div></div></div>
+
+            <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="form-group">
+                <b><label for="pass1">Password</label></b>
             <input type="password" name="password" id="password" placeholder="Password"/>
+                        </div></div>
             </div>
-            <button type="submit" value="submit">Login</button>
-            </br></br></br>
-            <div>
-                 <label for="forgot_pass">Forgot Password?</label>
-             <button formaction="{% url 'myapp:password_reset' %}">Forgot Password</button>
+            </br>
+             <div style="text-align: center">
+           <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="form-group">
+                <button type="submit" value="submit"> <b>Login</b></button>
+                        </div></div></div>
             </div>
             </br></br>
-             <div>
-                 <label for="registration">New User? Register Here</label>
-             <button formaction="{% url 'myapp:register' %}">Register</button>
+           <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="form-group">
+                <b><label for="forgot_pass">Forgot Password?</label></b>
+                <button formaction="{% url 'myapp:password_reset' %}"> <b>Forgot Password</b></button>
+                        </div></div>
+            </div>
+            <hr>
+            </br>
+            <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="form-group">
+                 <b><label for="registration">New User? Register Here</label></b>
+                 <button formaction="{% url 'myapp:register' %}"> <b>Register</b></button>
+                        </div></div>
             </div>
         </form>
-    </div>>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 {% endblock %}

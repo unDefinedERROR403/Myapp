@@ -10,7 +10,7 @@
  </head>
  <body>
  <div>
- <h1>{% block myhdg %}
+ <h1 style="background-color: aquamarine">{% block myhdg %}
         {% if user.is_authenticated %}
             Hello {{ user.first_name }}
             <li1><a href="{% url 'myapp:logout' %}">Logout</a></li1>

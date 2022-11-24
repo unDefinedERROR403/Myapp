@@ -72,3 +72,20 @@ p2 {
 .button1 {
     font-size: 24px;
 }
+
+#bg1 {
+    background-image: url("bg1.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+#bg2 {
+    background-image: url("bg3.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-size: 250%;
+    opacity: 0.8;
+}
